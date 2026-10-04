@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300" role="img" aria-labelledby="t d">
+<title id="t">Özay Grup</title><desc id="d">Özay Grup Teknoloji ve Yaşam geçici logosu</desc>
+<defs>
+ <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#06111d"/><stop offset="1" stop-color="#173451"/></linearGradient>
+ <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#cfd2d4"/><stop offset="1" stop-color="#888d92"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2a0"/><stop offset=".45" stop-color="#ffb000"/><stop offset="1" stop-color="#c86400"/></linearGradient>
+</defs>
+<rect width="820" height="300" rx="18" fill="url(#bg)"/>
+<text x="72" y="155" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="150" fill="url(#silver)" letter-spacing="-7">ÖZAY</text>
+<path d="M555 45c64 28 78 105 36 155-27 32-70 44-108 29 47-2 84-42 84-90 0-39-24-74-60-88 16-8 31-10 48-6z" fill="url(#gold)"/>
+<text x="305" y="224" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="50" fill="url(#silver)" letter-spacing="22">GRUP</text>
+<path d="M105 221h145M570 221h145" stroke="#f4b42d" stroke-width="4"/>
+<text x="178" y="270" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#d8dadd" letter-spacing="9">TEKNOLOJİ &amp; YAŞAM</text>
+</svg>
