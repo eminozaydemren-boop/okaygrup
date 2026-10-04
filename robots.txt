@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://okaydemren-hue.github.io/okaygrup/sitemap.xml
