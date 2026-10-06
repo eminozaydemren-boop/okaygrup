@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://okaydemren-hue.github.io/okaygrup/</loc><priority>1.0</priority></url>
-<url><loc>https://okaydemren-hue.github.io/okaygrup/yenifoca-otomatik-sulama.html</loc><priority>0.9</priority></url>
-<url><loc>https://okaydemren-hue.github.io/okaygrup/eskifoca-otomatik-sulama.html</loc><priority>0.9</priority></url>
-<url><loc>https://okaydemren-hue.github.io/okaygrup/foca-peyzaj.html</loc><priority>0.8</priority></url>
-<url><loc>https://okaydemren-hue.github.io/okaygrup/foca-kamera-alarm-sistemleri.html</loc><priority>0.8</priority></url>
-<url><loc>https://okaydemren-hue.github.io/okaygrup/foca-akilli-ev-sistemleri.html</loc><priority>0.8</priority></url>
-  <url><loc>https://okaydemren-hue.github.io/okaygrup/yenifoca-elektrikci.html</loc></url>
-  <url><loc>https://okaydemren-hue.github.io/okaygrup/eskifoca-elektrikci.html</loc></url>
-  <url><loc>https://okaydemren-hue.github.io/okaygrup/foca-elektrikci.html</loc></url>
-<url><loc>https://okaydemren-hue.github.io/okaygrup/kurumsal.html</loc></url><url><loc>https://okaydemren-hue.github.io/okaygrup/elektrik-taahhut.html</loc></url></urlset>
+<url><loc>https://ozaysistem.com/</loc><priority>1.0</priority></url>
+<url><loc>https://ozaysistem.com/yenifoca-otomatik-sulama.html</loc><priority>0.9</priority></url>
+<url><loc>https://ozaysistem.com/eskifoca-otomatik-sulama.html</loc><priority>0.9</priority></url>
+<url><loc>https://ozaysistem.com/foca-peyzaj.html</loc><priority>0.8</priority></url>
+<url><loc>https://ozaysistem.com/foca-kamera-alarm-sistemleri.html</loc><priority>0.8</priority></url>
+<url><loc>https://ozaysistem.com/foca-akilli-ev-sistemleri.html</loc><priority>0.8</priority></url>
+  <url><loc>https://ozaysistem.com/yenifoca-elektrikci.html</loc></url>
+  <url><loc>https://ozaysistem.com/eskifoca-elektrikci.html</loc></url>
+  <url><loc>https://ozaysistem.com/foca-elektrikci.html</loc></url>
+<url><loc>https://ozaysistem.com/kurumsal.html</loc></url><url><loc>https://ozaysistem.com/elektrik-taahhut.html</loc></url><url><loc>https://ozaysistem.com/yenifoca-akilli-ev-sistemleri.html</loc></url>
+</urlset>
