@@ -12,3 +12,4 @@ html{scroll-padding-top:110px}body.home-page,body.full-page,body.service-page{ma
 @media(max-width:600px){.service-content .grid{grid-template-columns:1fr}.service-content .service-intro{padding:22px 18px!important}.service-content .related-services{padding:20px!important}.service-content .btn{font-size:14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 .site-logo img{max-width:100%;max-height:none}
+.related-links{display:flex;flex-wrap:wrap;gap:12px}.related-links a{padding:6px 0;margin-right:12px}.service-intro .btn{margin:12px 0 4px}
