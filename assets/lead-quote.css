@@ -1,0 +1,20 @@
+/* ÖZAY GRUP: ölçümsüz, WhatsApp'a yönlendiren teklif formu. */
+.oz-lead{clear:both;padding:42px 22px;background:#f1f7f3;border-top:1px solid #deebe2;border-bottom:1px solid #deebe2;color:#173424}
+.oz-lead,.oz-lead *{box-sizing:border-box}
+.oz-lead__inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,440px);align-items:center;gap:38px}
+.oz-lead__eyebrow{display:inline-block;color:#146d44;font-weight:800;letter-spacing:.08em;font-size:12px;text-transform:uppercase;margin-bottom:12px}
+.oz-lead__copy h2{margin:0 0 16px;font-size:clamp(26px,3vw,38px);line-height:1.2;color:#143724}
+.oz-lead__copy p{font-size:16px;line-height:1.7;margin:0 0 19px;max-width:570px;color:#42574a}
+.oz-lead__links{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:14px;font-weight:700}
+.oz-lead__links a{color:#0c6d41;text-decoration:underline;text-underline-offset:3px}
+.oz-lead__form{background:#fff;border:1px solid #d7e5dd;border-radius:16px;padding:24px;box-shadow:0 10px 28px #0b291a12;margin:0}
+.oz-lead__form label{display:block;font-size:13px;font-weight:750;color:#224833;margin:0 0 7px}
+.oz-lead__form input,.oz-lead__form select,.oz-lead__form textarea{display:block;width:100%;min-width:0;border:1px solid #b6ccbe;background:#fff;border-radius:8px;padding:12px;color:#173424;font:inherit;font-size:15px;margin:0 0 15px;line-height:1.4}
+.oz-lead__form textarea{min-height:78px;resize:vertical}
+.oz-lead__form input:focus-visible,.oz-lead__form select:focus-visible,.oz-lead__form textarea:focus-visible,.oz-lead__form button:focus-visible,.oz-lead__links a:focus-visible{outline:3px solid #70b58a;outline-offset:3px}
+.oz-lead__form button{display:block;width:100%;background:#0c7849;color:white;border:0;border-radius:9px;padding:14px 18px;font:inherit;font-size:15px;font-weight:800;cursor:pointer}
+.oz-lead__form button:hover{background:#075d38}
+.oz-lead__note{margin:12px 0 0;font-size:12px;line-height:1.55;color:#5b6c62}
+.oz-lead__note a{color:#145e3c;text-decoration:underline}
+.oz-lead__noscript{margin:12px 0 0}
+@media(max-width:780px){.oz-lead{padding:32px 16px 40px}.oz-lead__inner{grid-template-columns:1fr;gap:24px}.oz-lead__form{padding:20px}.oz-lead__copy p{font-size:15px}}
