@@ -1,52 +1,48 @@
-# ÖZAY GRUP – GA4 ölçüm kurulumu
+# ÖZAY GRUP – Google Analytics 4
 
-## Durum (13 Kasım 2026)
+## Etkinleştirme (13 Kasım 2026)
 
-- Site: https://ozaysistem.com/
-- Search Console: OpenSEO ile bağlı.
-- OpenSEO hesabında mevcut görünen tek GA4 mülkü: **www.avotekno.com**. Kullanılmamalı.
-- Özay Grup için yeni GA4 mülkü ve web veri akışı **henüz oluşturulmadı**.
-- `assets/ozay-analytics.js` içinde `var GA4_ID = ''` olduğu sürece Google Analytics ölçümü **kapalıdır**; dışarıya GA isteği gönderilmez ve analitik izin afişi gösterilmez.
-- Kod testlerinde izin verilmeden ölçüm yapılmadığı doğrulandı.
+- Google hesabında yeni **ÖZAY GRUP – ozaysistem.com** GA4 mülkü oluşturuldu.
+- GA4 mülkü: `properties/564250983`.
+- Web akışı: `16333593970`, **ÖZAY GRUP – Web Sitesi**.
+- Ölçüm kimliği: `G-5L8KVF5JXF`.
+- OpenSEO projesi (`7434cbc9-0554-4b9b-83fb-d7f73dd3391d`) doğru yeni mülke bağlandı.
+- Eski `www.avotekno.com` GA4 mülküne dokunulmadı.
+- `assets/ozay-analytics.js` yeni mülkün kimliğini kullanıyor; etiket yalnızca kullanıcı analitik çerezlerine açık rıza verdiğinde yüklenir.
+- Analitik izin seçiminden önce Google Analytics betiği yüklenmez.
 
-## Google tarafında gereken kurulum
+## Önemli yönetim ayrıntısı
 
-1. https://analytics.google.com/ adresinde doğru hesapla giriş yapın.
-2. Yönetici > Oluştur > Mülk seçeneklerinden bir **yeni GA4 mülkü** oluşturun.
-3. Önerilen isim: **ÖZAY GRUP – ozaysistem.com**. Saat dilimi: **Türkiye / İstanbul**, para birimi: **TRY**.
-4. Web veri akışını https://ozaysistem.com/ alan adı için oluşturun.
-5. Web veri akışı ayrıntılarından **G- ile başlayan Ölçüm Kimliği** değerini alın.
-6. Bu kimlik `assets/ozay-analytics.js` dosyasındaki `GA4_ID` değişkenine yerleştirilmelidir. Eski GA4 mülkünün kimliğini kullanmayın.
-7. GitHub ana dalına yayımlandıktan sonra Google Analytics > Raporlar > Gerçek Zamanlı ile izin verilmiş test ziyaretini doğrulayın.
-8. OpenSEO > Proje Ayarları > Entegrasyonlar'dan **yeni** GA4 mülkünü seçin ve eşleyin.
+Yeni GA4 web akışının Google tarafındaki varsayılan URL'si şu anda `http://ozaysistem.com` görünüyor. Canlı site `https://ozaysistem.com/` olduğundan **Google Analytics → Yönetici → Veri akışları → ÖZAY GRUP – Web Sitesi** altında URL'yi `https://ozaysistem.com` olarak güncelleyin. Bu akışın ölçüm kimliğini değiştirmez. Site kodu HTTPS kullanır.
 
-## Ölçüm tasarımı
+## Ölçülen etkinlikler
 
-| GA4 olay adı | Anlamı | Ticari dönüşüm sayılır mı? |
+| Olay | Anlamı | Hassas veri |
 | --- | --- | --- |
-| `whatsapp_quote_opened` | Sitede hazırlanan WhatsApp teklif mesajı açılmaya çalışıldı | Potansiyel iletişim niyeti; **gerçekten mesaj gönderildiği kanıtı değildir** |
-| `whatsapp_link_clicked` | Bir WhatsApp bağlantısına tıklandı | Tıklama; müşteri sayılmaz |
-| `phone_link_clicked` | Telefon bağlantısına tıklandı | Tıklama; arama bağlandı anlamına gelmez |
+| `whatsapp_quote_opened` | Kullanıcı teklif formunda WhatsApp mesajını açmayı denedi | İsim, telefon, adres, serbest metin gönderilmez |
+| `whatsapp_link_clicked` | Kullanıcı WhatsApp bağlantısını tıkladı | Mesaj metni gönderilmez |
+| `phone_link_clicked` | Kullanıcı telefon bağlantısını tıkladı | Telefon görüşmesi kaydedilmez |
 
-Kaynak sayfa yolu (`source_page`), seçilen hizmet (`service`) ve form tipi (`form_type`) olaylarla gönderilir. İsim, telefon numarası, serbest metin proje açıklaması, açık adres ve WhatsApp mesajının tamamı GA4'e gönderilmez.
+Olaylar yalnızca açık analitik rızası alındıktan sonra iletilir. Bu olaylar mesajın gerçekten gönderildiğini veya telefonun bağlandığını **garanti etmez**. Gerçek müşteri dönüşümü ayrıca WhatsApp/arama kayıtlarıyla doğrulanmalıdır.
 
-GA4 kurulduktan sonra `whatsapp_quote_opened` ve `phone_link_clicked` olaylarını isteğe göre **önemli etkinlik** olarak işaretlemek mümkündür. Gerçek müşteri taleplerini WhatsApp'ta gelen mesajlar ve tamamlanmış telefon görüşmeleri ile ayrıca sayın.
+## Doğrulama
 
-Analitik etiket yalnızca ziyaretçinin açık tercihi **Kabul et** ise yüklenir. Tercih `localStorage`'da saklanır ve sayfanın altındaki **Çerez tercihleri** ile değiştirilebilir. Eski veri aktarımını geriye dönük olarak oluşturmaz.
+1. Siteyi yeni gizli sekmede açın ve analitik izin afişinde **Kabul et** seçeneğini seçin.
+2. Google Analytics → Raporlar → Gerçek zamanlı raporunda aktif kullanıcının görünüp görünmediğini kontrol edin.
+3. Sayfada bir telefon ya da WhatsApp bağlantısına tıklayın; gerçek zamanlı etkinlik akışında `phone_link_clicked` veya `whatsapp_link_clicked` olayının oluşmasını denetleyin.
+4. Teklif formunda WhatsApp mesajı hazırlayarak `whatsapp_quote_opened` etkinliğini kontrol edin.
+5. Google Analytics Yönetici ekranında uygun `whatsapp_quote_opened` ve `phone_link_clicked` olaylarını **önemli etkinlik** olarak tanımlayın. Bu işlemler mevcut OpenSEO entegrasyonunda yazma yetkisi olmadığından buradan değiştirilemez.
+6. OpenSEO raporlarında yeni GA4 mülkü seçilmiş durumda. Ölçüm sonuçları zamanla görünecektir.
 
-## Site kapsaması
+## Teknik doğrulamalar
 
-24 modern HTML sayfası `assets/site-unified.js` üzerinden ölçüm altyapısını yükler.
-5 eski/ayrı tasarımlı elektrik ve güneş enerjisi sayfasında ölçüm betiği doğrudan tanımlıdır.
-Toplam: **29 site haritası URL'si**.
+- [x] Google Analytics yeni mülk ve web akışı oluşturuldu.
+- [x] OpenSEO yeni mülke bağlandı.
+- [x] Site koduna yalnızca yeni `G-` kimliği eklendi.
+- [x] İzin reddinde etiket yüklenmiyor.
+- [x] İzin kabulünde doğru `G-` ID ve yalnızca kişisel olmayan tıklama olayları hazır.
+- [ ] Kullanıcının gerçek tarayıcı etkileşimiyle GA4 gerçek zamanlı olay doğrulaması.
+- [ ] Google Analytics akışının varsayılan `http` URL'sini `https` yapma.
+- [ ] Kullanılacak önemli etkinliklerin Google yönetim ekranında işaretlenmesi.
 
-## Kontrol listesi
-
-- [x] Siteye izin tabanlı ölçüm altyapısı hazırlandı.
-- [x] WhatsApp teklif, doğrudan WhatsApp ve telefon tıklamaları için üç ayrı olay.
-- [x] Müşteri açıklamasını ve kişisel verileri analitik olayından ayırma.
-- [x] Gizlilik metnini güncelleme.
-- [ ] Özay Grup GA4 mülkü oluşturma (Google Analytics yöneticisi işlemi).
-- [ ] Doğru G- ölçüm kimliğini siteye ekleme.
-- [ ] OpenSEO'ya yeni GA4 mülkünü bağlama.
-- [ ] Gerçek zamanlı test ve önemli etkinlik doğrulaması.
+Bu dosya canlı performans değerleri veya müşteri satışları için kanıt değildir.
