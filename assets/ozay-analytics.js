@@ -1,10 +1,10 @@
-/* ÖZAY GRUP • GA4 altyapısı: doğru G- kimliği oluşturulana kadar pasif.
- * Google Analytics > Yönetici > Veri akışları > Web akışından G- kimliği alın.
- * Eskiden kullanılan Avotekno GA4 mülkünün kimliğini BURAYA koymayın.
+/* ÖZAY GRUP • GA4 ölçümü yalnızca açık analitik izniyle çalışır.
+ * Ölçüm mülkü: ÖZAY GRUP – ozaysistem.com (properties/564250983).
+ * Eski Avotekno mülkünü kullanmayın.
  */
 (function () {
   'use strict';
-  var GA4_ID = ''; // ÖZAY GRUP / ozaysistem.com web akışının gerçek G- kimliği eklenecek.
+  var GA4_ID = 'G-5L8KVF5JXF'; // ÖZAY GRUP / ozaysistem.com GA4 web stream.
   var enabled = /^G-[A-Z0-9]{6,20}$/.test(GA4_ID);
   var storageKey = 'ozay_analytics_consent_v1';
   var consent = 'unset';
