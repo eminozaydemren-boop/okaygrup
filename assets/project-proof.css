@@ -1,0 +1,15 @@
+/* ÖZAY GRUP: gerçek uygulama fotoğraflarını hizmet sayfalarında gösterir. */
+.ozay-proof{padding:40px 18px;background:#f4f8f5;border-top:1px solid #e0ebe3;border-bottom:1px solid #e0ebe3;color:#193c28}
+.ozay-proof,.ozay-proof *{box-sizing:border-box}
+.ozay-proof__inner{max-width:1120px;margin:0 auto}
+.ozay-proof__inner h2{font:700 clamp(23px,3vw,31px)/1.25 Arial,sans-serif;margin:0 0 10px;color:#173d2b}
+.ozay-proof__intro{font:15px/1.65 Arial,sans-serif;margin:0 0 20px;max-width:800px;color:#486052}
+.ozay-proof__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.ozay-proof__item{background:#fff;border:1px solid #d9e6dd;border-radius:12px;margin:0;overflow:hidden}
+.ozay-proof__item img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:#e5ede7}
+.ozay-proof__item figcaption{padding:14px 16px;font:14px/1.55 Arial,sans-serif;color:#2c4837}
+.ozay-proof__item figcaption strong{display:block;font-size:16px;margin-bottom:5px}
+.ozay-proof__links{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:18px}
+.ozay-proof__links a{color:#07643d;text-decoration:underline;text-underline-offset:3px;font-weight:700;font-size:14px}
+.ozay-proof__links a:focus-visible{outline:3px solid #68aa81;outline-offset:3px}
+@media(max-width:650px){.ozay-proof{padding:30px 14px}.ozay-proof__grid{grid-template-columns:1fr}.ozay-proof__item img{aspect-ratio:4/3}}

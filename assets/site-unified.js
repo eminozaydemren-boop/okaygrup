@@ -45,7 +45,7 @@
   }
   // Shared bootstrap: all modern pages load the privacy-safe analytics layer.
   const ozayAnalyticsScript = document.createElement('script');
-  ozayAnalyticsScript.src = '/assets/ozay-analytics.js?v=20261113';
+  ozayAnalyticsScript.src = '/assets/ozay-analytics.js?v=20261113-2';
   ozayAnalyticsScript.async = true;
   document.head.appendChild(ozayAnalyticsScript);
 })();
