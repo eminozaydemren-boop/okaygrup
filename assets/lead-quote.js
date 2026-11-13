@@ -24,6 +24,7 @@
       if (details) message.push('İhtiyacım: ' + details.slice(0, 600));
       var source = this.getAttribute('data-lead-source');
       if (source) message.push('İlgilendiğim sayfa: ' + source);
+      if (typeof window.ozayTrack === 'function') window.ozayTrack('whatsapp_quote_opened', { service: service, form_type: 'quick' });
       window.location.assign('https://wa.me/905384843479?text=' + encodeURIComponent(message.join('\n')));
     });
   }
