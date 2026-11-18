@@ -39,8 +39,14 @@
         `Konum: ${value('qLocation')}`,
         `Detay: ${value('qDetail')}`
       ].join('\n');
-      if (typeof window.ozayTrack === 'function') window.ozayTrack('whatsapp_quote_opened', { service: value('qService'), form_type: 'detailed' });
-      window.location.assign('https://wa.me/905384843479?text=' + encodeURIComponent(message));
+      const destination = 'https://wa.me/905384843479?text=' + encodeURIComponent(message);
+      const openWhatsApp = () => window.location.assign(destination);
+      if (typeof window.ozayTrack === 'function') {
+        const sent = window.ozayTrack('whatsapp_quote_opened', { service: value('qService'), form_type: 'detailed' }, openWhatsApp);
+        if (!sent) openWhatsApp();
+      } else {
+        openWhatsApp();
+      }
     });
   }
   // Shared bootstrap: all modern pages load the privacy-safe analytics layer.
