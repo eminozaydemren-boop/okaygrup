@@ -11,15 +11,19 @@
   var initialized = false;
 
   // Bu fonksiyon GA4 kurulmamışken ve onay yokken veri göndermez.
-  window.ozayTrack = function (eventName, data) {
+  window.ozayTrack = function (eventName, data, eventCallback) {
     if (!enabled || consent !== 'granted' || !initialized || typeof window.gtag !== 'function') return false;
     if (!/^(?:whatsapp_quote_opened|whatsapp_link_clicked|phone_link_clicked)$/.test(eventName)) return false;
     data = data || {};
-    var safe = { source_page: (window.location.pathname || '/').slice(0, 120), transport_type: 'beacon' };
+    var safe = { source_page: (window.location.pathname || '/').slice(0, 120) };
     // Serbest metin, müşteri adı, telefon numarası ve proje adresi GA4'e aktarılmaz.
     if (data.service) safe.service = String(data.service).slice(0, 60);
     if (data.form_type) safe.form_type = String(data.form_type).slice(0, 24);
     try {
+      if (typeof eventCallback === 'function') {
+        safe.event_callback = eventCallback;
+        safe.event_timeout = 500;
+      }
       window.gtag('event', eventName, safe);
       return true;
     } catch (error) {
@@ -109,8 +113,20 @@
     var link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
     if (!link) return;
     var href = link.getAttribute('href') || '';
-    if (/^tel:/i.test(href)) window.ozayTrack('phone_link_clicked', {});
-    else if (/^https:\/\/wa\.me\/905384843479(?:[/?#]|$)/i.test(href)) window.ozayTrack('whatsapp_link_clicked', {});
+    var isPhone = /^tel:/i.test(href);
+    var isWhatsApp = /^https:\/\/wa\.me\/905384843479(?:[/?#]|$)/i.test(href);
+    if (!isPhone && !isWhatsApp) return;
+    // Navigasyon olay gönderiminin hemen ardından sayfayı kapatmasın.
+    event.preventDefault();
+    var destination = link.href;
+    var resumed = false;
+    var resumeNavigation = function () {
+      if (resumed) return;
+      resumed = true;
+      window.location.assign(destination);
+    };
+    var sent = window.ozayTrack(isPhone ? 'phone_link_clicked' : 'whatsapp_link_clicked', {}, resumeNavigation);
+    if (!sent) resumeNavigation();
   }, true);
 
   if (consent === 'granted') loadAnalytics();
