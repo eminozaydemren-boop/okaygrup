@@ -125,7 +125,8 @@
       resumed = true;
       window.location.assign(destination);
     };
-    var sent = window.ozayTrack(isPhone ? 'phone_link_clicked' : 'whatsapp_link_clicked', {}, resumeNavigation);
+    var eventName = isPhone ? 'phone_link_clicked' : (link.getAttribute('data-ozay-contact') === 'whatsapp_quote' ? 'whatsapp_quote_opened' : 'whatsapp_link_clicked');
+    var sent = window.ozayTrack(eventName, {}, resumeNavigation);
     if (!sent) resumeNavigation();
   }, true);
 
